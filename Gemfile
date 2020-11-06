@@ -64,3 +64,8 @@ gem 'dotenv-rails'
 gem 'table_print'
 gem 'devise'
 gem "letter_opener", :group => :development
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end

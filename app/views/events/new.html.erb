@@ -1,2 +1,49 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+  <!-- Page Content -->
+  <div class="container">
+
+  	<!-- Page Heading/Breadcrumbs -->
+  	<h1 class="mt-4 mb-3">Events
+  		<small></small>
+  	</h1>
+
+  	<ol class="breadcrumb">
+  		<li class="breadcrumb-item">
+  			<a href="index.html">Home</a>
+  		</li>
+  		<li class="breadcrumb-item active">Create an event</li>
+  	</ol>
+
+  	<!-- Image Header -->
+  	<img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
+
+  	<form>
+  		<%= form_tag events_path(action: "create"), method: "post" do%>
+  		<div class="form-group">
+  			<%= label_tag "Title"%> 
+  			<%= text_field_tag "title", @title, class: "form-control", placeholder: "New year on a boat"%>
+  		</div>
+  		<div class="form-group">
+  			<%= label_tag "Description" %>
+  			<%= text_area_tag "description", @description, class: "form-control", placeholder: "Grosse rapta !!"%>
+  		</div>
+  		<div class="form-group">
+  			<%= label_tag "Location" %>
+  			<%= text_field_tag "location", @location, class: "form-control", placeholder: "Berlin"%>
+  		</div>
+  		<div class="form-group">
+  			<%= label_tag "Price" %>
+  			<%= text_field_tag "price", @price, class: "form-control", placeholder: "40"%>
+  		</div>
+  		<div class="form-group">
+  			<%= label_tag "Start date" %>
+  			<%=  date_field_tag "start_date", @start_date, class: "form-control"%>
+  		</div>
+  		<div class="form-group">
+  			<%= label_tag "Duration" %>
+  			<%= text_field_tag "duration", @duration, class: "form-control", placeholder: "in minutes"%>
+  		</div>
+  		<%= submit_tag "Create the event" %>
+  		<%end%>
+  	</form>
+  </div>
+  <br><br><br><br>

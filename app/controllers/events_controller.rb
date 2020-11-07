@@ -5,25 +5,32 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(
-          title: params[:title],
-          duration: params[:duration],
-          start_date: params[:start_date],
-          description: params[:description],
-          price: params[:price],
-          location: params[:location]
-            )
-    @event.uopdate(administrator: current_user)
-    if @event.save
-      redirect_to events_index_path, notice: "Event created"
-    else
-      render "new", notice: "#{@event.errors}"
+      title: params[:title],
+      duration: params[:duration],
+      start_date: params[:start_date],
+      description: params[:description],
+      price: params[:price],
+      location: params[:location]
+      )
+    @event.update(administrator: current_user)
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
+      else
+        format.html { render :new }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def index
+     @events = Event.all
   end
 
   def show
+    @event = Event.find(params[:id])
   end
 
   def update

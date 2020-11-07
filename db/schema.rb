@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2020_11_06_122111) do
     t.datetime "start_date"
     t.integer "duration"
     t.string "location"
+    t.bigint "administrator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["administrator_id"], name: "index_events_on_administrator_id"
   end
 
   create_table "participations", force: :cascade do |t|

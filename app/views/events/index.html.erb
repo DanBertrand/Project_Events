@@ -42,6 +42,40 @@
 </header>
 
 <body>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;"> 
+  <% @events.each do |e|  %>
+
+      <!-- Card content -->
+      <div class="card-body", style="width: 18rem; border: solid; border-radius: 6px; margin: 1em 1em 1em 1em;">
+        <!-- Avatar -->
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3"alt="avatar" width="50em">
+        <!-- Content -->
+        <div>
+          <!-- Title -->
+          <h4 class="card-title font-weight-bold mb-2"><%= e.title%></h4>
+          <hr>
+          <!-- Subtitle -->
+          <div class="card-text"><%= e.start_date%></div>
+          <div class="card-text"><%= e.location%></div>
+          <div class="card-text"><%= e.price%>€</div>
+          <div style="display: flex;justify-content: flex-end;">
+            <div>
+              <%= link_to "See more", event_path(e.id), class: "btn btn-info" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<%end%>
+
+  </div>
+
+
+
+    </div>
+
+  </div>
+  <!-- Card -->
 <!-- Page Content -->
 <div class="container">
 
